@@ -1,0 +1,187 @@
+import java.util.Scanner;
+import java.nio.file.*;
+import java.util.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.*;
+import java.io.*;
+public class EXU4R {
+
+    public static void main(String[] args) {
+        Scanner sn=new Scanner(System.in);
+        boolean continuar = true, continuar2 = true;
+		int opcion, numero = 1; 
+                      int  elemento;
+		
+		Object inserta;
+		
+		Procesos obj = new Procesos();
+		
+	
+                 //leer archivo
+                  //paso 1
+        File miarchivo;
+        //paso 2
+        FileReader leer;    //variable para leer
+        //paso 3
+        String cadena;
+        //paso 4
+        miarchivo=new File("numeros.txt");       
+        
+        try {
+         //paso 5
+        leer = new FileReader(miarchivo);
+        //paso 6
+        BufferedReader almacenamiento=new BufferedReader(leer);
+        //paso 7
+        cadena ="";
+        //paso 8
+        while(cadena!=null){
+            
+            try {
+                //pao 8.1
+             cadena=almacenamiento.readLine();
+             //paso 8.2
+             if(cadena!=null){
+                 System.out.println(cadena);
+             }
+            } catch (Exception e) {
+            }
+        }
+
+     
+            try {
+                //paso 9
+                almacenamiento.close();  
+                //paso 10
+                leer.close();
+            } catch (Exception e) {
+            }
+        } catch (Exception e) {
+        }
+                 //leer archivo
+
+   
+		while(continuar) {
+                   
+			System.out.println("");
+			System.out.println("Menu de listas enlazadas");
+			System.out.println("1.- Insertar");
+			System.out.println("2.- Mostrar Pre-orden");
+			System.out.println("3.- Mostrar In-orden");
+			System.out.println("4.- Mostrar Post-orden");
+			System.out.println("5.- Buscar elemento");
+			System.out.println("6.- Altura");
+			System.out.println("7.- Cantidad de nodos");
+			System.out.println("8.- Salir");
+			opcion = sn.nextInt();
+			
+			switch (opcion) {
+			case 1:
+				System.out.println("Numeros insertados");
+				
+				while (continuar2) {
+					Nodo nodoActual;
+					
+					switch (numero) {
+					case 1:
+						nodoActual = new Nodo(6);
+						obj.Insertar(nodoActual);
+						break;
+						
+					case 2:
+						nodoActual = new Nodo(3);
+						obj.Insertar(nodoActual);
+						break;
+
+					case 3:
+						nodoActual = new Nodo(2);
+						obj.Insertar(nodoActual);
+						break;
+						
+					case 4:
+						nodoActual = new Nodo(4);
+						obj.Insertar(nodoActual);
+						break;
+						
+					case 5:
+						nodoActual = new Nodo(1);
+						obj.Insertar(nodoActual);
+						break;
+						
+					case 6:
+						nodoActual = new Nodo(2);
+						obj.Insertar(nodoActual);
+						break;
+						
+					case 7:
+						nodoActual = new Nodo(7);
+						obj.Insertar(nodoActual);
+						break;
+						
+					case 8:
+						nodoActual = new Nodo(10);
+						obj.Insertar(nodoActual);
+						break;
+						
+					case 9:
+						nodoActual = new Nodo(8);
+						obj.Insertar(nodoActual);
+						break;
+						
+					case 10:
+						nodoActual = new Nodo(9);
+						obj.Insertar(nodoActual);
+						break;
+						
+					default:
+						break;
+					}
+					
+					if(numero == 10)
+						continuar2 = false;
+					
+					numero++;
+				}
+				break;
+				
+			case 2:
+				obj.preorden();
+				break;
+				
+			case 3:
+				obj.inorden();
+				break;
+				
+			case 4:
+				obj.posorden();
+				break;
+				
+			case 5:
+				System.out.println("¿Qué número desea buscar?");
+				elemento =sn.nextInt();
+				obj.Buscar(elemento);
+				break;
+				
+			case 6:
+				obj.retornaAltura();
+				break;
+			
+			case 7:
+				obj.cantidad();
+				break;
+			
+			case 8:
+				continuar = false;
+				break;
+				
+			default:
+				break;
+			}
+		}
+        
+        
+        
+    }//main
+    
+    
+}//class
