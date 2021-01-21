@@ -1,0 +1,113 @@
+
+public class procesos {
+     Nodo nodopadre=null;
+     Nodo nodoraiz=null;
+     Nodo nodopadre1=null;
+     Nodo nodoraiz2=null;
+        
+        int cantidadnodos=0;
+        
+    public void Insertar(Nodo nodoactual){
+        if (nodopadre==null) {
+            nodopadre=nodoactual;
+            nodoraiz=nodoactual;
+            cantidadnodos++;
+        }else{
+            if (nodoactual.elemento<nodopadre.elemento) {
+                if (nodopadre.izquierda==null) {
+                    nodopadre.izquierda=nodoactual;
+                    nodopadre=nodoraiz;
+                    cantidadnodos++;
+                }else{
+                    nodopadre=nodopadre.izquierda;
+                    Insertar(nodoactual);
+                }
+            }else{
+                if (nodopadre.derecha==null) {
+                    nodopadre.derecha=nodoactual;
+                    nodopadre=nodoraiz;
+                    cantidadnodos++;
+                }else{
+                    nodopadre=nodopadre.derecha;
+                    Insertar(nodoactual);
+                }
+            }
+        }
+        
+    }
+    public void preOrden(Nodo nodoraiz ){
+        if (nodoraiz!=null) {
+            System.out.println(nodoraiz.elemento);
+            preOrden(nodoraiz.izquierda);
+            preOrden(nodoraiz.derecha);
+        }
+    }
+  public void inOrden(Nodo nodoraiz){
+      if (nodoraiz!=null) {
+          inOrden(nodoraiz.izquierda);
+          System.out.println(nodoraiz.elemento);
+          inOrden(nodoraiz.derecha);
+      }
+      
+  }
+  public void postOrden(Nodo nodoraiz){
+      if (nodoraiz!=null) {         
+          postOrden(nodoraiz.izquierda);
+          postOrden(nodoraiz.derecha);
+          System.out.println(nodoraiz.elemento);
+      }
+  }
+  public void nodos(){
+      cantidadnodos++;
+  }
+  public void Insertar1(Nodo nodoactual){
+        if (nodopadre==null) {
+            nodopadre=nodoactual;
+            nodoraiz=nodoactual;
+            cantidadnodos++;
+        }else{
+            if (nodoactual.elemento<nodopadre.elemento) {
+                if (nodopadre.izquierda==null) {
+                    nodopadre.izquierda=nodoactual;
+                    nodopadre=nodoraiz;
+                    cantidadnodos++;
+                }else{
+                    nodopadre=nodopadre.izquierda;
+                    Insertar(nodoactual);
+                }
+            }else{
+                if (nodopadre.derecha==null) {
+                    nodopadre.derecha=nodoactual;
+                    nodopadre=nodoraiz;
+                    cantidadnodos++;
+                }else{
+                    nodopadre=nodopadre.derecha;
+                    Insertar(nodoactual);
+                }
+            }
+        }
+        
+    }
+    public void preOrden1(Nodo nodoraiz ){
+        if (nodoraiz!=null) {
+            System.out.println(nodoraiz.elemento);
+            preOrden(nodoraiz.izquierda);
+            preOrden(nodoraiz.derecha);
+        }
+    }
+  public void inOrden1(Nodo nodoraiz){
+      if (nodoraiz!=null) {
+          inOrden(nodoraiz.izquierda);
+          System.out.println(nodoraiz.elemento);
+          inOrden(nodoraiz.derecha);
+      }
+      
+  }
+  public void postOrden1(Nodo nodoraiz){
+      if (nodoraiz!=null) {         
+          postOrden(nodoraiz.izquierda);
+          postOrden(nodoraiz.derecha);
+          System.out.println(nodoraiz.elemento);
+      }
+  }
+}//procesos
